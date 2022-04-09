@@ -1,0 +1,69 @@
+; This file was generated using the following command:
+; /home/suman/.local/bin/martinize2 -f ser-his-glu.pdb -o his_cg.top -x his_cg.pdb -dssp dssp -p backbone -ff martini3001
+; martinize with vermouth 0.7.2
+; The following sequence of secondary structure 
+; was used for the full system:
+; CCC
+
+; Pleas cite the following papers:
+; Souza, P C T; Alessandri, R; Barnoud, J; Thallmair, S; Faustino, I; Grünewald, F; Patmanidis, I; Abdizadeh, H; Bruininks, B M H; Wassenaar, T A; Kroon, P C; Melcr, J; Nieto, V; Corradi, V; Khan, H M; Domański, J; Javanainen, M; Martinez-Seara, H; Reuter, N; Best, R B; Vattulainen, I; Monticelli, L; Periole, X; Tieleman, D P; de Vries, A H; Marrink, S J;  Nature Methods 2021; 10.1038/s41592-021-01098-3
+
+[ moleculetype ]
+HIS 1
+
+[ atoms ]
+1 SQ4p 1 HIS B0   1    1 
+2 TC4  1 HIS B1   2  0.0 
+3 TN6d 1 HIS B2   3  0.0 
+4 TN5a 1 HIS B3   4  0.0 
+5 SQ5n 1 HIS B4   5   -1 
+
+[ position_restraints ]
+#ifdef POSRES
+1 1 1000 1000 1000
+5 1 1000 1000 1000
+#endif
+
+[ bonds ]
+; Backbone bonds
+;1 5 1 0.27 30000
+
+; Side chain bonds
+;1 2 1 0.26 30000
+
+#ifdef FLEXIBLE
+; Side chain bonds
+2 3 1 0.450 1000000
+2 4 1 0.420 1000000
+3 4 1 0.370 1000000
+#endif
+
+[ constraints ]
+#ifndef FLEXIBLE
+; Side chain bonds
+1 5 1 0.270
+1 2 1 0.257 
+2 3 1 0.320
+2 4 1 0.300
+3 4 1 0.270
+#endif
+
+[ angles ]
+; BBB angles
+
+; BBS angles regular martini
+2 1 5 2 74.000 1800.0
+
+; First SBB regular martini
+
+; Side chain angles
+1 2 3 2 107.500 100.0
+;1 2 4 2 88.000 400.0
+1 2 4 2 88.000 220.0
+
+[ exclusions ]
+1 2 3 4 5 
+2 3 4 5
+3 4 5
+;4 5
+
